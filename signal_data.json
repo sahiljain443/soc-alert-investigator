@@ -1,0 +1,28 @@
+{
+  "id": "AwAAAZwsiCS0vAu17gAAABhBWndzaUNTMEFBREg2TDR2ZjdtRENnQUEAAAAkMTE5YzJjZDAtMzRlNC00MDczLWIzZTUtODMxNDdhZWI4MzExAAABvw",
+  "title": "Security Signal",
+  "message": "%%%\n## Goal\nDetect an Impossible Travel event when two successful authentication events occur in a short time frame.\n\n## Strategy\nThe Impossible Travel detection type's algorithm compares the GeoIP data of the last log and the current log to determine if the user `teacoroyalllc@gmail.com` traveled more than 500km at over 1,000km/hr.\n\n## Triage and response\n1. Determine if the user `teacoroyalllc@gmail.com` should have authenticated from `San Antonio, United States` and `Lubbock, United States`.\n2. If `` should not authenticated from `San Antonio, United States` and `Lubbock, United States`, then consider isolating the account and reset credentials.\n3. Audit any instance actions that may have occurred after the illegitimate login.\n\n**NOTE** VPNs and other anonymous IPs are filtered out of this signal\n\n## Changelog\n* 10 October 2022 - Updated query.\n* 20 November 2023 - Updated group by values to include `@usr.id`.\n* 30 September 2024 - Updated query to replace attribute `@threat_intel.results.subcategory:anonymizer`.\n%%%",
+  "severity": "high",
+  "status": "high",
+  "source": "datadog",
+  "tags": [
+    "mitre_platform:identity-provider",
+    "scope:auth0",
+    "security:attack",
+    "tactic:ta0001-initial-access",
+    "tenant:toast-pos",
+    "severity:3",
+    "technique:t1078-valid-accounts",
+    "mitre_platform:cloud",
+    "source:auth0",
+    "datadog.submission_auth:api_key"
+  ],
+  "timestamp": "2026-02-05T06:40:45.748Z",
+  "host": null,
+  "service": null,
+  "attributes": {
+    "rule_id": null,
+    "rule_name": null,
+    "rule_version": null
+  }
+}

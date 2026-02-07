@@ -1,0 +1,34 @@
+{
+  "id": "alert-2024-001",
+  "title": "Suspicious Login Activity Detected",
+  "message": "Multiple failed login attempts detected from external IP 185.220.101.45 targeting user account admin@example.com. Source IP is associated with known TOR exit node. Additional suspicious activity from IP 45.33.32.156 attempting to access /api/admin endpoint. File hash detected in request payload: 44d88612fea8a8f36de82e1278abb02f (MD5). SHA256 hash also found: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855. Affected host: web-server-prod-01.internal.corp. User email: admin@example.com attempted login from suspicious location.",
+  "severity": "high",
+  "status": "triggered",
+  "source": "datadog",
+  "tags": [
+    "security",
+    "authentication",
+    "brute-force",
+    "tor",
+    "suspicious-ip"
+  ],
+  "timestamp": "2024-02-03T10:30:00Z",
+  "host": "web-server-prod-01",
+  "service": "auth-api",
+  "attributes": {
+    "source_ips": [
+      "185.220.101.45",
+      "45.33.32.156"
+    ],
+    "target_user": "admin@example.com",
+    "failed_attempts": 47,
+    "time_window": "15 minutes",
+    "geo_locations": [
+      "Germany",
+      "United States"
+    ],
+    "request_path": "/api/admin",
+    "user_agent": "curl/7.68.0",
+    "internal_ip": "10.0.1.50"
+  }
+}

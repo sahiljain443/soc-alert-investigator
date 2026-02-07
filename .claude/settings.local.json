@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.abuseipdb.com)",
+      "WebFetch(domain:ipinfo.io)",
+      "Bash(cd /Users/sahil.jain/Desktop/Claude\\\\ Projects/SOC\\\\ Agent\\\\ Claude\\\\ 2/soc-alert-investigator && python3:*)",
+      "mcp__splunk__run_splunk_query",
+      "Bash(cd /Users/sahil.jain/Desktop/Claude\\\\ Projects/SOC\\\\ Agent\\\\ Claude\\\\ 2/soc-alert-investigator && python3 main.py:*)",
+      "Bash(cd:*)",
+      "Bash(python3 main.py:*)",
+      "Bash(cd /Users/sahil.jain/Desktop/Claude\\\\ Projects/SOC\\\\ Agent\\\\ Claude\\\\ 2/soc-alert-investigator && python main.py:*)",
+      "Bash(python3 -c \"\nfrom datadog_connector import DataDogClient, SignalMapper, SignalSelector\nfrom datetime import datetime, timedelta\n\nclient = DataDogClient\\(\\)\nselector = SignalSelector\\(client\\)\n\n# Fetch high severity signals from last 7 days\nsignals = selector.fetch_signals\\(hours=168, severity=''high'', limit=25\\)\n\n# Get signal #2\nif len\\(signals\\) >= 2:\n    signal = signals[1]  # Index 1 for signal #2\n    selector.show_signal_details\\(signal\\)\n    \n    # Map to alert format\n    mapped = SignalMapper.map_signal\\(signal\\)\n    print\\(''\\\\n--- Mapped Alert Data ---''\\)\n    import json\n    print\\(json.dumps\\(mapped, indent=2, default=str\\)\\)\n\")",
+      "Bash(python3 -c \"\nfrom dotenv import load_dotenv\nload_dotenv\\(\\)\n\nfrom datadog_connector import DataDogClient, SignalSelector\n\nclient = DataDogClient\\(\\)\nselector = SignalSelector\\(client\\)\n\n# Fetch high severity signals from last 24 hours\nsignals = selector.fetch_signals\\(hours=24, severity=''high'', limit=25\\)\nselector.display_signals\\(signals\\)\n\")",
+      "Bash(python3 -c \"\nfrom dotenv import load_dotenv\nload_dotenv\\(\\)\n\nfrom datadog_connector import DataDogClient, SignalMapper, SignalSelector\nimport json\n\nclient = DataDogClient\\(\\)\nselector = SignalSelector\\(client\\)\n\n# Fetch high severity signals from last 24 hours\nsignals = selector.fetch_signals\\(hours=24, severity=''high'', limit=25\\)\n\n# Get signal #2 \\(index 1\\)\nif len\\(signals\\) >= 2:\n    signal = signals[1]\n    selector.show_signal_details\\(signal\\)\n    \n    # Map to alert format\n    mapped = SignalMapper.map_signal\\(signal\\)\n    print\\(''\\\\n--- Mapped Alert Data ---''\\)\n    print\\(json.dumps\\(mapped, indent=2, default=str\\)\\)\n\")",
+      "Bash(python3 -c \"\nimport asyncio\nfrom datadog_connector.signal_selector import SignalSelector\n\nasync def get_signals\\(\\):\n    selector = SignalSelector\\(\\)\n    signals = await selector.fetch_signals\\(hours=12, severity=''high''\\)\n    for i, s in enumerate\\(signals[:10], 1\\):\n        attrs = s.get\\(''attributes'', {}\\)\n        title = attrs.get\\(''custom'', {}\\).get\\(''title''\\) or attrs.get\\(''message'', ''''\\)[:50]\n        sig_id = s.get\\(''id'', ''N/A''\\)\n        print\\(f''{i}. {title[:50]:<50} | ID: {sig_id}''\\)\n    return signals\n\nasyncio.run\\(get_signals\\(\\)\\)\n\")",
+      "Bash(source .env)",
+      "Bash(python3:*)",
+      "WebFetch(domain:docs.datadoghq.com)",
+      "WebFetch(domain:github.com)",
+      "Bash(claude mcp:*)",
+      "Bash(python main.py:*)",
+      "Bash(python:*)",
+      "WebFetch(domain:api.abuseipdb.com)",
+      "WebFetch(domain:www.shodan.io)",
+      "WebFetch(domain:viz.greynoise.io)",
+      "WebFetch(domain:www.virustotal.com)",
+      "WebFetch(domain:bgp.he.net)",
+      "WebFetch(domain:www.whois.com)",
+      "WebFetch(domain:otx.alienvault.com)",
+      "WebFetch(domain:talosintelligence.com)",
+      "Bash(cd /Users/sahil.jain/Desktop/Claude\\\\ Projects/SOC\\\\ Agent\\\\ Claude\\\\ 2/soc-alert-investigator && find:*)",
+      "Bash(cd /Users/sahil.jain/Desktop/Claude Projects/SOC Agent Claude 2/soc-alert-investigator && python3:*)"
+    ]
+  }
+}
